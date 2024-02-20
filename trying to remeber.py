@@ -1,28 +1,18 @@
-import requests
-from bs4 import BeautifulSoup
+wl = open(r"C:\Users\Crypt\OneDrive\code\hey.txt", "r")
 
-Page = input("Whats the page URL? ")
+myne = wl.read()
 
-def get_html_content(url):
-  """Gets the HTML content of the web page."""
-  response = requests.get(url)
-  return response.content
+serach = input("Whats the keyword? ")
 
-def parse_html_content(html_content):
-  """Parses the HTML content and extracts the desired information."""
-  soup = BeautifulSoup(html_content, 'html.parser')
-  return soup
+if serach == str("ls"):
+    print(myne)
+    quit
 
-def main():
-  """Runs the web scraper."""
-  url = Page
-  html_content = get_html_content(url)
-  soup = parse_html_content(html_content)
-  title = soup.find('head').text
-  body = soup.find('body').text
-  print(title)
-  print(body)
-  
+x = myne.__contains__(serach)
 
-if __name__ == "__main__":
-  main()
+if x == True or serach == str("ls"):
+    print("Found: " + str(serach))
+else:
+    print('Not found')
+    file = open(r"C:\Users\Crypt\OneDrive\code\hey.txt", 'a')
+    file.writelines(str(' "') + serach + str('",'))
