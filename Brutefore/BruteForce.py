@@ -23,11 +23,14 @@ def pwGuess():
       
 print("1: Guess the number \n2: Guess the password")
 choice = input("what type would you like to do? ")
+if choice.isdigit() == True:
+    pw = input("whats the password? ")
 
-pw = input("whats the password? ")
-
-choice = int(choice)
-if choice == 1:
-   digitGuess()
-if choice == 2:
-   pwGuess()
+    choice = int(choice)
+    if choice == 1:
+       digitGuess()
+    if choice == 2:
+     pwGuess()
+else:
+   print("enter valid option")
+   quit()
